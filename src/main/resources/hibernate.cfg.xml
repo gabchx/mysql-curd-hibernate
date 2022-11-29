@@ -19,5 +19,11 @@
         <mapping class="src.model.Timeslot"/>
         <mapping class="src.model.Employee"/>
         <mapping class="src.model.Employee_history"/>
+        <mapping class="src.model.Feedback"/>
+        <mapping class="src.model.Credits"/>
+        <mapping class="src.model.Subscription"/>
+        <mapping class="src.model.Payment_method"/>
+        <mapping class="src.model.Connection_method"/>
+        <mapping class="src.model.Topup"/>
     </session-factory>
 </hibernate-configuration>

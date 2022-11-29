@@ -1,10 +1,5 @@
 package src.seeding;
 
-import src.model.Employee;
-import src.model.Employee_history;
-import src.model.Place;
-import src.model.Timeslot;
-
 public class Seeding {
     public static void seedAllTable() {
         CustomerSeeding.seed();
@@ -12,6 +7,12 @@ public class Seeding {
         TimeslotSeeding.seed();
         EmployeeSeeding.seed();
         //Employee_historySeeding.seed();
+        Connection_methodSeeding.seed();
+        Payment_methodSeeding.seed();
+        SubscriptionSeeding.seed();
+        FeedbackSeeding.seed();
+        CreditsSeeding.seed();
+        TopupSeeding.seed();
         System.out.println("Seeding complete!");
     };
 }
