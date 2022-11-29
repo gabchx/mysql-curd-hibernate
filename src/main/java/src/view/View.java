@@ -48,7 +48,7 @@ public class View {
 
     public void ending(){
         String r;
-        System.out.println("Show the menu again enter 'M'");
+        System.out.println("\nShow the menu again enter 'M'");
         System.out.println("To Quit 'Q'");
         r = scanner.next();
         if(Objects.equals(r, "M")){

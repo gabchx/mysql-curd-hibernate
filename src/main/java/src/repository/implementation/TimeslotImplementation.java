@@ -1,62 +1,52 @@
 package src.repository.implementation;
 
-import src.model.Authentication;
-import src.repository.AuthenticationRepository;
+import src.model.Timeslot;
+import src.repository.TimeslotRepository;
 import src.util.HibernateSession;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
 
-public class AuthenticationImplementation implements AuthenticationRepository {
+public class TimeslotImplementation implements TimeslotRepository {
     private Session session;
     private Transaction transaction;
 
     @Override
-    public void add(Authentication authentication) {
+    public void add(Timeslot timeslot) {
         session = HibernateSession.getSessionFactory().openSession();
         transaction = session.beginTransaction();
-        session.save(authentication);
+        session.save(timeslot);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public List<Authentication> getAll() {
+    public List<Timeslot> getAll() {
         session = HibernateSession.getSessionFactory().openSession();
         transaction = session.beginTransaction();
-        List<Authentication> authentication = session.createQuery("FROM Authentication", Authentication.class).getResultList();
+        List<Timeslot> timeslot = session.createQuery("FROM Timeslot", Timeslot.class).getResultList();
         transaction.commit();
         session.close();
 
-        return authentication;
+        return timeslot;
     }
 
     @Override
-    public Authentication getById(String id) {
+    public Timeslot getById(String id) {
         session = HibernateSession.getSessionFactory().openSession();
         transaction = session.beginTransaction();
-        Authentication authentication= session.get(Authentication.class, id);
+        Timeslot timeslot = session.get(Timeslot.class, id);
         transaction.commit();
         session.close();
 
-        return authentication;
-    }
-
-    public Authentication getByName(String name) {
-        session = HibernateSession.getSessionFactory().openSession();
-        transaction = session.beginTransaction();
-        Authentication authentication= session.get(Authentication.class, name);
-        transaction.commit();
-        session.close();
-
-        return authentication;
+        return timeslot;
     }
 
     @Override
-    public void update(String id, Authentication authentication ){
+    public void update(String id, Timeslot timeslot) {
         session = HibernateSession.getSessionFactory().openSession();
         transaction = session.beginTransaction();
-        session.saveOrUpdate(authentication);
+        session.saveOrUpdate(timeslot);
         transaction.commit();
         session.close();
     }
@@ -65,8 +55,8 @@ public class AuthenticationImplementation implements AuthenticationRepository {
     public void deleteById(String id) {
         session = HibernateSession.getSessionFactory().openSession();
         transaction = session.beginTransaction();
-        Authentication authentication= session.get(Authentication.class, id);
-        session.remove(authentication);
+        Timeslot timeslot = session.get(Timeslot.class, id);
+        session.remove(timeslot);
         transaction.commit();
         session.close();
     }

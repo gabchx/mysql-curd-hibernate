@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="hibernate_crud_console" />
         <module name="dbms-curd" />
+        <module name="mysql-curd-hibernate" />
       </profile>
     </annotationProcessing>
   </component>
