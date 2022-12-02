@@ -22,7 +22,7 @@ public class TopupSeeding {
         i=1;
         Customer c1 = custctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Credits cd1 = credctrl.getValueByIndex(Long.valueOf(i.longValue()));
-        i=2;
+        i=1;
         Payment_method p1 = payctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Date d1 = new Date(2002,02,21);
         Topup t1 = new Topup(c1,cd1,d1,p1,"none");

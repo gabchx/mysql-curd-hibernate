@@ -20,20 +20,22 @@ public class Menu {
         System.out.println("| 5  | connections_methods         | 5 | DELETE                         |");
         System.out.println("| 6  | payment_methode             |   |                                |");
         System.out.println("| 7  | feedback                    |   |                                |");
-        System.out.println("| 8  | credit                      |   |                                |");
+        System.out.println("| 8  | credits                     |   |                                |");
         System.out.println("| 9  | subscription                |   |                                |");
         System.out.println("| 10 | topup                       |   |                                |");
         System.out.println("| 11 | employee                    |   |                                |");
         System.out.println("| 12 | employee_history            |   |                                |");
-        System.out.println("| 13 | feedback                    |   |                                |");
-        System.out.println("| 14 | feedback                    |   |                                |");
-        System.out.println("| 15 | feedback                    |   |                                |");
-        System.out.println("| 16 | feedback                    |   |                                |");
-        System.out.println("| 17 | feedback                    |   |                                |");
-        System.out.println("| 18 | feedback                    |   |                                |");
-        System.out.println("| 19 | feedback                    |   |                                |");
-        System.out.println("| 20 | feedback                    |   |                                |");
-        System.out.println("| 21 | feedback                    |   |                                |");
+
+        System.out.println("| 13 | subscribe                   |   |                                |");
+        System.out.println("| 14 | component                   |   |                                |");
+        System.out.println("| 15 | component_list              |   |                                |");
+        System.out.println("| 16 | game                        |   |                                |");
+        System.out.println("| 17 | fix                         |   |                                |");
+        System.out.println("| 18 | warning_message             |   |                                |");
+        System.out.println("| 19 | user_request                |   |                                |");
+        System.out.println("| 20 | computer                    |   |                                |");
+        System.out.println("| 21 | connection                  |   |                                |");
+
         System.out.println("| 22 | feedback                    |   |                                |");
         System.out.println("| 23 | feedback                    |   |                                |");
         System.out.println("| 24 | feedback                    |   |                                |");

@@ -6,6 +6,7 @@ import src.controller.*;
 import src.model.*;
 import src.seeding.EmployeeSeeding;
 import src.seeding.Seeding;
+import src.seeding.User_requestSeeding;
 import src.util.HibernateSession;
 
 import java.util.*;
@@ -28,6 +29,15 @@ public class View {
     private final TimeslotController timeslotController = new TimeslotController();
     private final TopupController topupController = new TopupController();
     private final Payment_methodController payment_methodController = new Payment_methodController();
+    private final SubscribeController subscribeController = new SubscribeController();
+    private final ComponentController componentController = new ComponentController();
+    private final Components_listController components_listController = new Components_listController();
+    private final GameController gameController = new GameController();
+    private final FixController fixController = new FixController();
+    private final Warning_messageController warning_messageController = new Warning_messageController();
+    private final User_requestController user_requestController = new User_requestController();
+    private final ComputersController computersController = new ComputersController();
+    private final ConnectionController connectionController = new ConnectionController();
 
 
     public View() {
@@ -72,33 +82,35 @@ public class View {
         menu.put("121", this::getAll);
         menu.put("122", this::get);
         menu.put("125", this::delete);
-        menu.put("131", this::getAll);
-        menu.put("132", this::get);
-        menu.put("135", this::delete);
-        menu.put("141", this::getAll);
-        menu.put("142", this::get);
-        menu.put("145", this::delete);
-        menu.put("151", this::getAll);
-        menu.put("152", this::get);
-        menu.put("155", this::delete);
-        menu.put("161", this::getAll);
-        menu.put("162", this::get);
-        menu.put("165", this::delete);
-        menu.put("171", this::getAll);
-        menu.put("172", this::get);
-        menu.put("175", this::delete);
-        menu.put("181", this::getAll);
-        menu.put("182", this::get);
-        menu.put("185", this::delete);
-        menu.put("191", this::getAll);
-        menu.put("192", this::get);
-        menu.put("195", this::delete);
-        menu.put("201", this::getAll);
-        menu.put("202", this::get);
-        menu.put("205", this::delete);
-        menu.put("211", this::getAll);
-        menu.put("212", this::get);
-        menu.put("215", this::delete);
+
+        menu.put("131", this::getAllSubscribe);
+        menu.put("132", this::getSubscribeById);
+        menu.put("135", this::deleteSubscribe);
+        menu.put("141", this::getAllComponent);
+        menu.put("142", this::getComponentById);
+        menu.put("145", this::deleteComponent);
+        menu.put("151", this::getAllComponents_list);
+        menu.put("152", this::getComponents_listById);
+        menu.put("155", this::deleteComponents_list);
+        menu.put("161", this::getAllGame);
+        menu.put("162", this::getGameById);
+        menu.put("165", this::deleteGame);
+        menu.put("171", this::getAllFix);
+        menu.put("172", this::getFixById);
+        menu.put("175", this::deleteFix);
+        menu.put("181", this::getAllWarning_message);
+        menu.put("182", this::getWarning_messageById);
+        menu.put("185", this::deleteWarning_message);
+        menu.put("191", this::getAllUser_request);
+        menu.put("192", this::getUser_requestById);
+        menu.put("195", this::deleteUser_request);
+        menu.put("201", this::getAllComputers);
+        menu.put("202", this::getComputersById);
+        menu.put("205", this::deleteComputers);
+        menu.put("211", this::getAllConnection);
+        menu.put("212", this::getConnectionById);
+        menu.put("215", this::deleteConnection);
+
         menu.put("221", this::getAll);
         menu.put("222", this::get);
         menu.put("225", this::delete);
@@ -492,7 +504,33 @@ public class View {
         }
         ending();
     }
-    //========================== PAYMENT_METHOD =======================
+    //========================== PAYMENT_METHOD ========================
+    public void getAllPayment_methods() {
+        System.out.println("List of all payment_methods:");
+        payment_methodController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deletePayment_methods() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        payment_methodController.deletePayment_method(index);
+        ending();
+    }
+
+    public void getPayment_methodsById() {
+        System.out.println("Enter id in order to get payment_methods:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (payment_methodController.getValueByIndex(id) != null)
+                System.out.println(payment_methodController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
     //========================== TOPUP =================================
     public void getAllTopup() {
         System.out.println("List of all topup:");
@@ -521,22 +559,259 @@ public class View {
         ending();
     }
     //========================== SUBSCRIBE =============================
+    public void getAllSubscribe() {
+        System.out.println("List of all subscribe:");
+        subscribeController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteSubscribe() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        subscribeController.deleteSubscribe(index);
+        ending();
+    }
+
+    public void getSubscribeById() {
+        System.out.println("Enter id in order to get subscribe:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (subscribeController.getValueByIndex(id) != null)
+                System.out.println(subscribeController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
     //========================== CONNECTIONS ===========================
+    public void getAllConnection() {
+        System.out.println("List of all connection:");
+        connectionController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteConnection() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        connectionController.deleteConnection(index);
+        ending();
+    }
+
+    public void getConnectionById() {
+        System.out.println("Enter id in order to get connection:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (connectionController.getValueByIndex(id) != null)
+                System.out.println(connectionController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== GAMES =================================
+    public void getAllGame() {
+        System.out.println("List of all game:");
+        gameController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteGame() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        gameController.deleteGame(index);
+        ending();
+    }
+
+    public void getGameById() {
+        System.out.println("Enter id in order to get game:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (gameController.getValueByIndex(id) != null)
+                System.out.println(gameController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== COMPUTER ==============================
+    public void getAllComputers() {
+        System.out.println("List of all computers:");
+        computersController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteComputers() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        computersController.deleteComputers(index);
+        ending();
+    }
+
+    public void getComputersById() {
+        System.out.println("Enter id in order to get computers:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (computersController.getValueByIndex(id) != null)
+                System.out.println(computersController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================= COMPONENT_LIST =========================
+    public void getAllComponents_list() {
+        System.out.println("List of all components_list:");
+        components_listController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteComponents_list() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        components_listController.deleteComponents_list(index);
+        ending();
+    }
+
+    public void getComponents_listById() {
+        System.out.println("Enter id in order to get components_list:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (components_listController.getValueByIndex(id) != null)
+                System.out.println(components_listController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== USER_REQUEST ==========================
+    public void getAllUser_request() {
+        System.out.println("List of all user_request:");
+        user_requestController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteUser_request() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        user_requestController.deleteUser_request(index);
+        ending();
+    }
+
+    public void getUser_requestById() {
+        System.out.println("Enter id in order to get user_request:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (user_requestController.getValueByIndex(id) != null)
+                System.out.println(user_requestController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== FIX ===================================
+    public void getAllFix() {
+        System.out.println("List of all fix:");
+        fixController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteFix() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        fixController.deleteFix(index);
+        ending();
+    }
+
+    public void getFixById() {
+        System.out.println("Enter id in order to get fix:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (fixController.getValueByIndex(id) != null)
+                System.out.println(fixController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== COMPONENT =============================
+    public void getAllComponent() {
+        System.out.println("List of all component:");
+        componentController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteComponent() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        componentController.deleteComponent(index);
+        ending();
+    }
+
+    public void getComponentById() {
+        System.out.println("Enter id in order to get component:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (componentController.getValueByIndex(id) != null)
+                System.out.println(componentController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== WARNING_MESSAGE =======================
+    public void getAllWarning_message() {
+        System.out.println("List of all warning_message:");
+        warning_messageController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteWarning_message() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        warning_messageController.deleteWarning_message(index);
+        ending();
+    }
+
+    public void getWarning_messageById() {
+        System.out.println("Enter id in order to get warning_message:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (warning_messageController.getValueByIndex(id) != null)
+                System.out.println(warning_messageController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
     //========================== PRODUCTS ==============================
     //========================== RECEIPS================================
     //========================== BILING=================================
     //========================== ORDER =================================
     //========================== SERVE =================================
-    //========================== GAMES =================================
-    //========================== COMER =================================
-    //========================= COMPONENT_LIST =========================
-    //========================== USER_REQUEST ==========================
-    //========================== FIX ===================================
-    //========================== CONPONENT =============================
-    //========================== WARNING_MESSAGE =======================
+
+
     //========================== CUSTOMERS =============================
     //========================== CUSTOMERS =============================
     //========================== CUSTOMERS =============================
+
 
 
     /*

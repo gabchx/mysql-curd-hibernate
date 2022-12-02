@@ -25,5 +25,14 @@
         <mapping class="src.model.Payment_method"/>
         <mapping class="src.model.Connection_method"/>
         <mapping class="src.model.Topup"/>
+        <mapping class="src.model.Component"/>
+        <mapping class="src.model.Components_list"/>
+        <mapping class="src.model.Computers"/>
+        <mapping class="src.model.Connection"/>
+        <mapping class="src.model.Fix"/>
+        <mapping class="src.model.Game"/>
+        <mapping class="src.model.Subscribe"/>
+        <mapping class="src.model.User_request"/>
+        <mapping class="src.model.Warning_message"/>
     </session-factory>
 </hibernate-configuration>

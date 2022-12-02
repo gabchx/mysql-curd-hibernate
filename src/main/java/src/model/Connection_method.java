@@ -3,13 +3,13 @@ package src.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "connection_methods")
+@Table(name = "connection_method")
 public class Connection_method {
 
     @Id
-    @Column(name = "connection_methods_id")
+    @Column(name = "connection_method_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long connection_methods_id;
+    protected Long connection_method_id;
 
     @Column(name = "description")
     private String description;
@@ -20,7 +20,7 @@ public class Connection_method {
     }
 
     public Connection_method(Long connection_methods_id, String description) {
-        this.connection_methods_id = connection_methods_id;
+        this.connection_method_id = connection_methods_id;
         this.description = description;
     }
 
@@ -28,6 +28,6 @@ public class Connection_method {
     }
 
     public String toString() {
-        return connection_methods_id + "   " + description;
+        return connection_method_id + "   " + description;
     }
 }
