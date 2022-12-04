@@ -1,9 +1,5 @@
 package src.seeding;
 
-import src.model.Components_list;
-import src.model.Subscribe;
-import src.model.Warning_message;
-
 public class Seeding {
     public static void seedAllTable() {
         CustomerSeeding.seed();
@@ -26,6 +22,15 @@ public class Seeding {
         SubscribeSeeding.seed();
         User_requestSeeding.seed();
         Warning_messageSeeding.seed();
+
+        RecipeSeeding.seed();
+        ProductSeeding.seed();
+        SupplierSeeding.seed();
+        BillingSeeding.seed();
+        ServeSeeding.seed();
+        ProvideSeeding.seed();
+        //OrderSeeding.seed();
+
         System.out.println("Seeding complete!");
     };
 }

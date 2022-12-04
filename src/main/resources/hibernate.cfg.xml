@@ -34,5 +34,12 @@
         <mapping class="src.model.Subscribe"/>
         <mapping class="src.model.User_request"/>
         <mapping class="src.model.Warning_message"/>
+        <mapping class="src.model.Billing"/>
+        <mapping class="src.model.Product"/>
+        <mapping class="src.model.Provide"/>
+        <mapping class="src.model.Recipe"/>
+        <mapping class="src.model.Supplier"/>
+        <mapping class="src.model.Serve"/>
+        <mapping class="src.model.Order"/>
     </session-factory>
 </hibernate-configuration>
