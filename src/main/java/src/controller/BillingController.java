@@ -18,11 +18,11 @@ public class BillingController {
         repository.add(newBilling);
     }
 
-    public void deleteBiling(Long index) {
+    public void deleteBilling(Long index) {
         repository.deleteById(index);
     }
 
-    public void updateBiling(Long id, Billing updateBilling) {
+    public void updateBilling(Long id, Billing updateBilling) {
         repository.update(id, updateBilling);
     }
 

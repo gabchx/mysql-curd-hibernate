@@ -26,8 +26,8 @@ public class Menu {
         System.out.println("| 11 | employee                    |   |                                |");
         System.out.println("| 12 | employee_history            |   |                                |");
 
-        System.out.println("| 13 | subscribe                   |   |                                |");
-        System.out.println("| 14 | component                   |   |                                |");
+        System.out.println("| 13 | subscribe                   |   |      Enter 'Q' to test         |");
+        System.out.println("| 14 | component                   |   |        some query.             |");
         System.out.println("| 15 | component_list              |   |                                |");
         System.out.println("| 16 | game                        |   |                                |");
         System.out.println("| 17 | fix                         |   |                                |");
@@ -36,15 +36,15 @@ public class Menu {
         System.out.println("| 20 | computer                    |   |                                |");
         System.out.println("| 21 | connection                  |   |                                |");
 
-        System.out.println("| 22 | feedback                    |   |                                |");
-        System.out.println("| 23 | feedback                    |   |                                |");
-        System.out.println("| 24 | feedback                    |   |                                |");
-        System.out.println("| 25 | feedback                    |   |                                |");
-        System.out.println("| 26 | feedback                    |   |                                |");
-        System.out.println("| 27 | feedback                    |   |                                |");
-        System.out.println("| 28 | feedback                    |   |                                |");
-        System.out.println("| 29 | feedback                    |   |                                |");
-        System.out.println("| 30 | feedback                    |   |                                |");
+        System.out.println("| 22 | billing                     |   |                                |");
+        System.out.println("| 23 | order                       |   |                                |");
+        System.out.println("| 24 | serve                       |   |                                |");
+        System.out.println("| 25 | product                     |   |                                |");
+        System.out.println("| 26 | recipe                      |   |                                |");
+        System.out.println("| 27 | supplier                    |   |                                |");
+        System.out.println("| 28 | provide                     |   |                                |");
+        System.out.println("| 29 | ???                         |   |                                |");
+        System.out.println("| 30 | ???                         |   |                                |");
         System.out.println("|____|_____________________________|___|________________________________|");
         System.out.println("|             Mapping 'M'      Seeding  'S'      Both 'MS'              |");
         System.out.println("|_______________________________________________________________________|");

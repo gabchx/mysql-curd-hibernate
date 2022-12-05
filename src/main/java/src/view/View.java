@@ -4,11 +4,14 @@ import lombok.SneakyThrows;
 import org.hibernate.Session;
 import src.controller.*;
 import src.model.*;
+import src.repository.OrderRepository;
 import src.seeding.EmployeeSeeding;
 import src.seeding.Seeding;
 import src.seeding.User_requestSeeding;
+import src.util.Connector;
 import src.util.HibernateSession;
 
+import java.io.Console;
 import java.util.*;
 
 public class View {
@@ -38,6 +41,13 @@ public class View {
     private final User_requestController user_requestController = new User_requestController();
     private final ComputersController computersController = new ComputersController();
     private final ConnectionController connectionController = new ConnectionController();
+    private final BillingController billingController = new BillingController();
+    private final ServeController serveController = new ServeController();
+    private final ProductController productController = new ProductController();
+    private final ProvideController provideController = new ProvideController();
+    private final SupplierController supplierController = new SupplierController();
+    private final OrderController orderController = new OrderController();
+    private final RecipeController recipeController = new RecipeController();
 
 
     public View() {
@@ -111,33 +121,36 @@ public class View {
         menu.put("212", this::getConnectionById);
         menu.put("215", this::deleteConnection);
 
-        menu.put("221", this::getAll);
-        menu.put("222", this::get);
-        menu.put("225", this::delete);
-        menu.put("231", this::getAll);
-        menu.put("232", this::get);
-        menu.put("235", this::delete);
-        menu.put("241", this::getAll);
-        menu.put("242", this::get);
-        menu.put("245", this::delete);
-        menu.put("251", this::getAll);
-        menu.put("252", this::get);
-        menu.put("255", this::delete);
-        menu.put("261", this::getAll);
-        menu.put("262", this::get);
-        menu.put("265", this::delete);
-        menu.put("271", this::getAll);
-        menu.put("272", this::get);
-        menu.put("275", this::delete);
-        menu.put("281", this::getAll);
-        menu.put("282", this::get);
-        menu.put("285", this::delete);
+        menu.put("221", this::getAllBilling);
+        menu.put("222", this::getBillingById);
+        menu.put("225", this::deleteBilling);
+        menu.put("231", this::getAllOrder);
+        menu.put("232", this::getOrderById);
+        menu.put("235", this::deleteOrder);
+        menu.put("241", this::getAllServe);
+        menu.put("242", this::getServeById);
+        menu.put("245", this::deleteServe);
+        menu.put("251", this::getAllProduct);
+        menu.put("252", this::getProductById);
+        menu.put("255", this::deleteProduct);
+        menu.put("261", this::getAllRecipe);
+        menu.put("262", this::getRecipeById);
+        menu.put("265", this::deleteRecipe);
+        menu.put("271", this::getAllSupplier);
+        menu.put("272", this::getSupplierById);
+        menu.put("275", this::deleteSupplier);
+        menu.put("281", this::getAllProvide);
+        menu.put("282", this::getProvideById);
+        menu.put("285", this::deleteProvide);
+
         menu.put("291", this::getAll);
         menu.put("292", this::get);
         menu.put("295", this::delete);
         menu.put("301", this::getAll);
         menu.put("302", this::get);
         menu.put("305", this::delete);
+
+        menu.put("Q", this::querry);
 
         menu.put("quite", this::show);
 
@@ -176,14 +189,49 @@ public class View {
     public void ms(){
         Session session = HibernateSession.getSessionFactory().openSession();
         Seeding.seedAllTable();
-        ending();
+        show();
     }
     public void m(){
         Session session = HibernateSession.getSessionFactory().openSession();
-        ending();
+        show();
     }
     public void s(){
         Seeding.seedAllTable();
+        show();
+    }
+
+    public void querry(){
+        String r;
+        System.out.println("\nWhat querry do you want to make?");
+        System.out.println("1 : SELECT * FROM employee");
+        System.out.println("2 : SELECT ....");
+        System.out.println("3 : SELECT ....");
+        System.out.println("\n Enter 'P' to  write one your-self.");
+        r = scanner.next();
+        Connector C = new Connector("localhost","pcbang-chain",3306);
+        C.Connect("javapp","azerty123&é\"");
+        String qry;
+        switch (r) {
+            case "1":
+                qry = "SELECT * FROM employee";
+                System.out.println(C.Query(qry));
+                break;
+            case "2":
+                qry = "2";
+                System.out.println(C.Query(qry));
+                break;
+            case "3":
+                qry = "3";
+                System.out.println(C.Query(qry));
+                break;
+            case "P":
+                System.out.println("\n Enter your querry :");
+                qry = scanner.next();
+                System.out.println(C.Query(qry));
+                break;
+            default: System.out.println("\nWrong Choice"); break;
+
+        }
         ending();
     }
 
@@ -802,15 +850,196 @@ public class View {
         ending();
     }
     //========================== PRODUCTS ==============================
-    //========================== RECEIPS================================
-    //========================== BILING=================================
+    public void getAllProduct() {
+        System.out.println("List of all product:");
+        productController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteProduct() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        productController.deleteProduct(index);
+        ending();
+    }
+
+    public void getProductById() {
+        System.out.println("Enter id in order to get product:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (productController.getValueByIndex(id) != null)
+                System.out.println(productController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== RECIPE ================================
+    public void getAllRecipe() {
+        System.out.println("List of all recipe:");
+        recipeController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteRecipe() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        recipeController.deleteRecipe(index);
+        ending();
+    }
+
+    public void getRecipeById() {
+        System.out.println("Enter id in order to get recipe:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (recipeController.getValueByIndex(id) != null)
+                System.out.println(recipeController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== BILLING================================
+    public void getAllBilling() {
+        System.out.println("List of all billing:");
+        billingController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteBilling() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        billingController.deleteBilling(index);
+        ending();
+    }
+
+    public void getBillingById() {
+        System.out.println("Enter id in order to get billing:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (billingController.getValueByIndex(id) != null)
+                System.out.println(billingController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
     //========================== ORDER =================================
+    public void getAllOrder() {
+        System.out.println("List of all order:");
+        orderController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteOrder() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        orderController.deleteOrder(index);
+        ending();
+    }
+
+    public void getOrderById() {
+        System.out.println("Enter id in order to get order:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (orderController.getValueByIndex(id) != null)
+                System.out.println(orderController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
     //========================== SERVE =================================
+    public void getAllServe() {
+        System.out.println("List of all serve:");
+        serveController.printAll().forEach(System.out::println);
+        ending();
+    }
 
+    public void deleteServe() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        serveController.deleteServe(index);
+        ending();
+    }
 
-    //========================== CUSTOMERS =============================
-    //========================== CUSTOMERS =============================
-    //========================== CUSTOMERS =============================
+    public void getServeById() {
+        System.out.println("Enter id in order to get serve:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (serveController.getValueByIndex(id) != null)
+                System.out.println(serveController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== SUPPLIER ==============================
+    public void getAllSupplier() {
+        System.out.println("List of all supplier:");
+        supplierController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteSupplier() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        supplierController.deleteSupplier(index);
+        ending();
+    }
+
+    public void getSupplierById() {
+        System.out.println("Enter id in order to get supplier:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (supplierController.getValueByIndex(id) != null)
+                System.out.println(supplierController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== PROVIDE ===============================
+    public void getAllProvide() {
+        System.out.println("List of all provide:");
+        provideController.printAll().forEach(System.out::println);
+        ending();
+    }
+
+    public void deleteProvide() {
+        System.out.println("Enter id in order to delete row:");
+        Long index = Long.parseLong(scanner.next());
+        provideController.deleteProvide(index);
+        ending();
+    }
+
+    public void getProvideById() {
+        System.out.println("Enter id in order to get provide:");
+        Long id = Long.parseLong(scanner.next());
+        try {
+            if (provideController.getValueByIndex(id) != null)
+                System.out.println(provideController.getValueByIndex(id).toString());
+
+        } catch (NullPointerException e) {
+            System.out.println("There is no such number " +
+                    "\nTry one more time, please");
+        }
+        ending();
+    }
+    //========================== ???????? =============================
+    //========================== ???????? =============================
 
 
 
