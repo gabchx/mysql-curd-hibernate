@@ -29,7 +29,7 @@ public class Seeding {
         BillingSeeding.seed();
         ServeSeeding.seed();
         ProvideSeeding.seed();
-        //OrderSeeding.seed();
+        OrderSeeding.seed();
 
         System.out.println("Seeding complete!");
     };
