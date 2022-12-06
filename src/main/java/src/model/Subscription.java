@@ -31,6 +31,10 @@ public class Subscription {
     public Subscription() {
     }
 
+    public String toOneString(){
+        return subscription_id+"";
+    }
+
     public String toString() {
         return subscription_id + "   " + time_per_month + "   " + price_per_month;
     }

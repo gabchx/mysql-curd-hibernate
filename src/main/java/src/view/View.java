@@ -2,6 +2,7 @@ package src.view;
 
 import lombok.SneakyThrows;
 import org.hibernate.Session;
+import org.hibernate.Query;
 import src.controller.*;
 import src.model.*;
 import src.repository.OrderRepository;
@@ -11,6 +12,7 @@ import src.seeding.User_requestSeeding;
 import src.util.Connector;
 import src.util.HibernateSession;
 
+import javax.swing.text.Style;
 import java.io.Console;
 import java.util.*;
 
@@ -89,9 +91,9 @@ public class View {
         menu.put("111", this::getAllEmployee);
         menu.put("112", this::getEmployeeById);
         menu.put("115", this::deleteEmployee);
-        menu.put("121", this::getAll);
-        menu.put("122", this::get);
-        menu.put("125", this::delete);
+        menu.put("121", this::getAllEmployee_history);
+        menu.put("122", this::getEmployee_historyById);
+        menu.put("125", this::deleteEmployee_history);
 
         menu.put("131", this::getAllSubscribe);
         menu.put("132", this::getSubscribeById);
@@ -151,6 +153,7 @@ public class View {
         menu.put("305", this::delete);
 
         menu.put("Q", this::querry);
+        menu.put("P", this::storeProcedure);
 
         menu.put("quite", this::show);
 
@@ -232,6 +235,17 @@ public class View {
             default: System.out.println("\nWrong Choice"); break;
 
         }
+        ending();
+    }
+
+    public void storeProcedure(){
+        System.out.println("\nThe store procedure will get an employee by his name in parameter.\n Please enter the name of the employee you want to select :");
+        String name = scanner.next();
+        Session session = HibernateSession.getSessionFactory().openSession();
+        Query query = session.createSQLQuery("CALL GetEmployeeByName(:employeeName)")
+                .addEntity(Employee.class)
+                .setParameter("employeeName",name);
+        System.out.println(query.getResultList());
         ending();
     }
 
@@ -364,25 +378,25 @@ public class View {
         ending();
     }
     //========================== EMPLOYEE_HISTORY ======================
-    public void getAllPayment_method() {
-        System.out.println("List of all payment_method:");
-        payment_methodController.printAll().forEach(System.out::println);
+    public void getAllEmployee_history() {
+        System.out.println("List of all employee_history:");
+        employee_historyController.printAll().forEach(System.out::println);
         ending();
     }
 
-    public void deletePayment_method() {
+    public void deleteEmployee_history() {
         System.out.println("Enter id in order to delete row:");
         Long index = Long.parseLong(scanner.next());
-        payment_methodController.deletePayment_method(index);
+        employee_historyController.deleteEmployee_history(index);
         ending();
     }
 
-    public void getPayment_methodById() {
-        System.out.println("Enter id in order to get payment_method:");
+    public void getEmployee_historyById() {
+        System.out.println("Enter id in order to get employee_history:");
         Long id = Long.parseLong(scanner.next());
         try {
-            if (payment_methodController.getValueByIndex(id) != null)
-                System.out.println(payment_methodController.getValueByIndex(id).toString());
+            if (employee_historyController.getValueByIndex(id) != null)
+                System.out.println(employee_historyController.getValueByIndex(id).toString());
 
         } catch (NullPointerException e) {
             System.out.println("There is no such number " +
@@ -553,20 +567,20 @@ public class View {
         ending();
     }
     //========================== PAYMENT_METHOD ========================
-    public void getAllPayment_methods() {
+    public void getAllPayment_method() {
         System.out.println("List of all payment_methods:");
         payment_methodController.printAll().forEach(System.out::println);
         ending();
     }
 
-    public void deletePayment_methods() {
+    public void deletePayment_method() {
         System.out.println("Enter id in order to delete row:");
         Long index = Long.parseLong(scanner.next());
         payment_methodController.deletePayment_method(index);
         ending();
     }
 
-    public void getPayment_methodsById() {
+    public void getPayment_methodById() {
         System.out.println("Enter id in order to get payment_methods:");
         Long id = Long.parseLong(scanner.next());
         try {

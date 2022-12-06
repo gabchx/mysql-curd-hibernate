@@ -47,8 +47,11 @@ public class Computers {
     public Computers() {
     }
 
+    public String toOneString(){
+        return computers_id+"";
+    }
     public String toString() {
-        return computers_id + "   " + place_id + "   " + appointed_technician + "   " + creation_date + "   "
-                + components_list_id;
+        return computers_id + "   " + place_id.toOneString() + "   " + appointed_technician.toOneString() + "   " + creation_date + "   "
+                + components_list_id.toOneString();
     }
 }

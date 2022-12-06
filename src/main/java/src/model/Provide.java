@@ -41,7 +41,11 @@ public class Provide {
     public Provide() {
     }
 
+    public String toOneString(){
+        return provide_id+"";
+    }
+
     public String toString() {
-        return provide_id + "   " + supplier_id + "   " + product_id + "   " + date;
+        return provide_id + "   " + supplier_id.toOneString() + "   " + product_id.toOneString() + "   " + date;
     }
 }

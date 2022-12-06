@@ -54,8 +54,12 @@ public class Subscribe {
     public Subscribe() {
     }
 
+    public String toOneString(){
+        return subscribe_id+"";
+    }
+
     public String toString() {
-        return subscribe_id + "   " + user + "   " + subscription + "   " + date + "   " + payment_method + "   "
+        return subscribe_id + "   " + user.toOneString() + "   " + subscription.toOneString() + "   " + date + "   " + payment_method.toOneString() + "   "
                 + payment_details;
     }
 }

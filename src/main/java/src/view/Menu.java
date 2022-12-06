@@ -30,8 +30,8 @@ public class Menu {
         System.out.println("| 14 | component                   |   |        some query.             |");
         System.out.println("| 15 | component_list              |   |                                |");
         System.out.println("| 16 | game                        |   |                                |");
-        System.out.println("| 17 | fix                         |   |                                |");
-        System.out.println("| 18 | warning_message             |   |                                |");
+        System.out.println("| 17 | fix                         |   |      Enter 'P' to test         |");
+        System.out.println("| 18 | warning_message             |   |     the store procedure.       |");
         System.out.println("| 19 | user_request                |   |                                |");
         System.out.println("| 20 | computer                    |   |                                |");
         System.out.println("| 21 | connection                  |   |                                |");

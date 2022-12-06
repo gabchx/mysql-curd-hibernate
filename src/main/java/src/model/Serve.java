@@ -15,7 +15,7 @@ public class Serve {
     @JoinColumn(name = "biling_id")
     private Billing billing_id;
 
-    @ManyToOne(targetEntity = Employee.class, cascade = CascadeType.PERSIST)
+    @ManyToOne(targetEntity = Employee.class, cascade = CascadeType.DETACH)
     @JoinColumn(name = "employee_id")
     private Employee employee_id;
 
@@ -39,8 +39,11 @@ public class Serve {
 
     public Serve() {
     }
+    public String toOneString(){
+        return serve_id+"";
+    }
 
     public String toString() {
-        return serve_id + "   " + billing_id + "   " + employee_id + "   " + feedback_id;
+        return serve_id + "   " + billing_id.toOneString() + "   " + employee_id.toOneString() + "   " + feedback_id.toOneString();
     }
 }

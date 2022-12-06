@@ -31,6 +31,10 @@ public class Feedback {
     public Feedback() {
     }
 
+    public String toOneString(){
+        return feedback_id+"";
+    }
+
     public String toString() {
         return feedback_id + "   " + note + "    " + message;
     }

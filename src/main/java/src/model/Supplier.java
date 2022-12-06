@@ -36,6 +36,10 @@ public class Supplier {
     public Supplier() {
     }
 
+    public String toOneString(){
+        return name+"";
+    }
+
     public String toString() {
         return supplier_id + "   " + name + "   " + phone_number + "   " + score;
     }

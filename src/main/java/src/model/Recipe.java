@@ -37,6 +37,10 @@ public class Recipe {
     public Recipe() {
     }
 
+    public String toOneString(){
+        return recipe_id+"";
+    }
+
     public String toString() {
         return recipe_id + "   " + cooking_way + "   " + cooking_time + "   " + advice;
     }

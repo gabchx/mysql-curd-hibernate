@@ -44,7 +44,11 @@ public class Fix {
     public Fix() {
     }
 
+    public String toOneString(){
+        return fix_id+"";
+    }
+
     public String toString() {
-        return fix_id + "   " + computer + "   " + technician + "   " + category + "   " + details;
+        return fix_id + "   " + computer.toOneString() + "   " + technician.toOneString() + "   " + category + "   " + details;
     }
 }

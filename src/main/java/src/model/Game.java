@@ -47,8 +47,10 @@ public class Game {
 
     public Game() {
     }
-
+    public String toOneString(){
+        return name+"";
+    }
     public String toString() {
-        return game_id + "   " + name + "   " + caption + "   " + type + "   " + place_id + "   " + is_download;
+        return game_id + "   " + name + "   " + caption + "   " + type + "   " + place_id.toOneString() + "   " + is_download;
     }
 }

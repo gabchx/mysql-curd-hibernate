@@ -49,8 +49,12 @@ public class Component {
     public Component() {
     }
 
+    public String toOneString(){
+        return type+"";
+    }
+
     public String toString() {
-        return component_id + "   " + place_id + "   " + type + "   " + description + "   " + quantity_in_stock + "   "
+        return component_id + "   " + place_id.toOneString() + "   " + type + "   " + description + "   " + quantity_in_stock + "   "
                 + price;
     }
 }

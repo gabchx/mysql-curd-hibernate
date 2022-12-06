@@ -49,7 +49,10 @@ public class Customer {
         return this.authentication;
     }
 
+    public String toOneString(){
+        return name+"";
+    }
     public String toString() {
-        return "   " + user_id +"   "+ name +"   "+ email +"   "+ authentication +"   "+ birthdate +"   "+birthdate + "   "+ time_left;
+        return user_id +"   "+ name +"   "+ email +"   "+ authentication.toOneString() +"   "+ birthdate + "   "+ time_left;
     }
 }

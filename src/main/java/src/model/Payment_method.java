@@ -31,6 +31,9 @@ public class Payment_method {
 
     public Payment_method() {
     }
+    public String toOneString(){
+        return payment_method_id+"";
+    }
 
     public String toString() {
         return payment_method_id + "   " + desciption + "   " + taxs;

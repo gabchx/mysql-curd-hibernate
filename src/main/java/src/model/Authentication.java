@@ -28,7 +28,9 @@ public class Authentication {
     public String getUser_name(){
         return user_name;
     }
-
+    public String toOneString(){
+        return user_name+"";
+    }
     public String toString() {
         return user_name + "   " + password_hash;
     }

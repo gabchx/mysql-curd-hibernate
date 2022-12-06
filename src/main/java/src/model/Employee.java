@@ -48,8 +48,10 @@ public class Employee {
 
     public Employee() {
     }
-
+    public String toOneString(){
+        return name+"";
+    }
     public String toString() {
-        return employee_id + "   " + place_id + "   " + name + "   " + title + "   " + salary + "   " + timeslot_id;
+        return employee_id + "   " + place_id.toOneString() + "   " + name + "   " + title + "   " + salary + "   " + timeslot_id.toOneString();
     }
 }

@@ -55,8 +55,12 @@ public class Product {
     public Product() {
     }
 
+    public String toOneString(){
+        return caption+"";
+    }
+
     public String toString() {
-        return product_id + "   " + place_id + "   " + type + "   " + recipe_id + "   " + age_limite + "   " + price
+        return product_id + "   " + place_id.toOneString() + "   " + type + "   " + recipe_id.toOneString() + "   " + age_limite + "   " + price
                 + "   " + caption;
     }
 }

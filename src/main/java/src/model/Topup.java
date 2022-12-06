@@ -52,7 +52,11 @@ public class Topup {
     public Topup() {
     }
 
+    public String toOneString(){
+        return topup_id+"";
+    }
+
     public String toString() {
-        return topup_id + "   " + user + "   " + credits + "   " + date + "   " + payment_method + "   " + payment_details;
+        return topup_id + "   " + user.toOneString() + "   " + credits.toOneString() + "   " + date + "   " + payment_method.toOneString() + "   " + payment_details;
     }
 }

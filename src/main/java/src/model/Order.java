@@ -43,7 +43,11 @@ public class Order {
     public Order() {
     }
 
+    public String toOneString(){
+        return order_id+"";
+    }
+
     public String toString() {
-        return order_id + "   " + customer_id + "   " + product_id + "   " + billing_id;
+        return order_id + "   " + customer_id.toOneString() + "   " + product_id.toOneString() + "   " + billing_id.toOneString();
     }
 }

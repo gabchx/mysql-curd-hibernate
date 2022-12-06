@@ -33,7 +33,11 @@ public class User_request {
     public User_request() {
     }
 
+    public String toOneString(){
+        return user_request_id+"";
+    }
+
     public String toString() {
-        return user_request_id + "   " + customer + "   " + message;
+        return user_request_id + "   " + customer.toOneString() + "   " + message;
     }
 }

@@ -35,6 +35,10 @@ public class Timeslot {
     public Timeslot() {
     }
 
+    public String toOneString(){
+        return timeslot_id+"";
+    }
+
     public String toString() {
         return timeslot_id + "   " + day + "   " + start_time + "   " + end_time + "   ";
     }

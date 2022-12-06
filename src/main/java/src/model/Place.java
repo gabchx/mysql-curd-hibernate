@@ -34,7 +34,9 @@ public class Place {
 
     public Place() {
     }
-
+    public String toOneString(){
+        return name+"";
+    }
     public String toString() {
         return place_id + "   " + name + "   " + adress + "   " + description + "   ";
     }

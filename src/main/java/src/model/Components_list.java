@@ -54,8 +54,12 @@ public class Components_list {
     public Components_list() {
     }
 
+    public String toOneString(){
+        return components_list_id+"";
+    }
+
     public String toString() {
-        return components_list_id + "   " + screen_id + "   " + keyboard_id + "   " + mouse_id + "   " + headphone_id
-                + "   " + tower_id;
+        return components_list_id + "   " + screen_id.toOneString() + "   " + keyboard_id.toOneString() + "   " + mouse_id.toOneString() + "   " + headphone_id.toOneString()
+                + "   " + tower_id.toOneString();
     }
 }

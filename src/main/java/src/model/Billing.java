@@ -50,8 +50,10 @@ public class Billing {
 
     public Billing() {
     }
-
+    public String toOneString(){
+        return billing_id+"";
+    }
     public String toString() {
-        return billing_id + "   " + total_amount + "   " + tips + "   " + payment_method + "   " + payment_details;
+        return billing_id + "   " + total_amount + "   " + tips + "   " + payment_method.toOneString() + "   " + payment_details;
     }
 }

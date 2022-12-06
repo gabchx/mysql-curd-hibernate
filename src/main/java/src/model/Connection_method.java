@@ -27,6 +27,10 @@ public class Connection_method {
     public Connection_method() {
     }
 
+    public String toOneString(){
+        return connection_method_id+"";
+    }
+
     public String toString() {
         return connection_method_id + "   " + description;
     }

@@ -51,8 +51,11 @@ public class Connection {
 
     public Connection() {
     }
+    public String toOneString(){
+        return connection_id+"";
+    }
 
     public String toString() {
-        return connection_id + "   "+ user +"   "+ computer + "   " + connection_method + "   " + duration + "   " + feedback;
+        return connection_id + "   "+ user.toOneString() +"   "+ computer.toOneString() + "   " + connection_method.toOneString() + "   " + duration + "   " + feedback.toOneString();
     }
 }

@@ -31,6 +31,9 @@ public class Credits {
     public Credits() {
     }
 
+    public String toOneString(){
+        return credits_id+"";
+    }
     public String toString() {
         return credits_id + "   " + price + "   " + time;
     }
