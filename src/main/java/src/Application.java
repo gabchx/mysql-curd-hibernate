@@ -25,6 +25,7 @@ public class Application {
 
             //Build Tables
             Session session = HibernateSession.getSessionFactory().openSession();
+            System.out.println("Mapping complete");
 
             //Seeding
             Seeding.seedAllTable();
