@@ -41,6 +41,7 @@ public class ConnectionSeeding {
         i = 4;
         Customer cst4 = cstctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Computers cpt4 = computersctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=2;
         Connection_method cm4 = cmctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Feedback f4 = fctrl.getValueByIndex(Long.valueOf(i.longValue()));
 
@@ -49,6 +50,7 @@ public class ConnectionSeeding {
         i = 5;
         Customer cst5 = cstctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Computers cpt5 = computersctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=3;
         Connection_method cm5 = cmctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Feedback f5 = fctrl.getValueByIndex(Long.valueOf(i.longValue()));
 
@@ -57,6 +59,7 @@ public class ConnectionSeeding {
         i = 6;
         Customer cst6 = cstctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Computers cpt6 = computersctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=2;
         Connection_method cm6 = cmctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Feedback f6 = fctrl.getValueByIndex(Long.valueOf(i.longValue()));
 
@@ -65,6 +68,7 @@ public class ConnectionSeeding {
         i = 7;
         Customer cst7 = cstctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Computers cpt7 = computersctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=1;
         Connection_method cm7 = cmctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Feedback f7 = fctrl.getValueByIndex(Long.valueOf(i.longValue()));
 
@@ -73,6 +77,7 @@ public class ConnectionSeeding {
         i = 8;
         Customer cst8 = cstctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Computers cpt8 = computersctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=2;
         Connection_method cm8 = cmctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Feedback f8 = fctrl.getValueByIndex(Long.valueOf(i.longValue()));
 
@@ -81,6 +86,7 @@ public class ConnectionSeeding {
         i = 9;
         Customer cst9 = cstctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Computers cpt9 = computersctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=3;
         Connection_method cm9 = cmctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Feedback f9 = fctrl.getValueByIndex(Long.valueOf(i.longValue()));
 
@@ -89,6 +95,7 @@ public class ConnectionSeeding {
         i = 10;
         Customer cst10 = cstctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Computers cpt10 = computersctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=2;
         Connection_method cm10 = cmctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Feedback f10 = fctrl.getValueByIndex(Long.valueOf(i.longValue()));
 

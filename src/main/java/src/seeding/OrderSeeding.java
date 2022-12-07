@@ -15,6 +15,7 @@ public class OrderSeeding {
 
         i=1;
         Customer c1 = custctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=1;
         Product p1 = productctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Billing b1 = bilingctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Order o1 = new Order(c1,p1,b1);
@@ -22,20 +23,23 @@ public class OrderSeeding {
 
         i=2;
         Customer c2 = custctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=2;
         Product p2 = productctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Billing b2 = bilingctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Order o2 = new Order(c2,p2,b2);
         orderctrl.addOrder(o2);
-
-        i=3;
+        i=2;
         Customer c3 = custctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=3;
         Product p3 = productctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Billing b3 = bilingctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Order o3 = new Order(c3,p3,b3);
         orderctrl.addOrder(o3);
 
-        i=4;
+        i=5;
         Customer c4 = custctrl.getValueByIndex(Long.valueOf(i.longValue()));
+        i=4;
+
         Product p4 = productctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Billing b4= bilingctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Order o4= new Order(c4,p4,b4);

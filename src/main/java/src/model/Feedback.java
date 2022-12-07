@@ -16,16 +16,21 @@ public class Feedback {
     @Column(name = "message")
     private String message;
 
+    @Column(name = "type")
+    private String type;
+
     // Constructor
-    public Feedback(String note, String message) {
+    public Feedback(String note, String message, String type) {
         this.note = note;
         this.message = message;
+        this.type = type;
     }
 
-    public Feedback(Long feedback_id, String note, String message) {
+    public Feedback(Long feedback_id, String note, String message, String type) {
         this.feedback_id = feedback_id;
         this.note = note;
         this.message = message;
+        this.type = type;
     }
 
     public Feedback() {
@@ -36,6 +41,6 @@ public class Feedback {
     }
 
     public String toString() {
-        return feedback_id + "   " + note + "    " + message;
+        return feedback_id + "   " + note + "    " + message+"   "+type;
     }
 }

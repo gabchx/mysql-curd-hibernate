@@ -26,7 +26,7 @@ public class SubscribeSeeding {
         Date d1 = new Date(2002, 02, 21);
         Subscribe t1 = new Subscribe(c1, s1, d1, p1, "none");
         subscribectrl.addSubscribe(t1);
-        i = 1;
+        i = 2;
         Customer c2 = custctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Subscription s2= subctrl.getValueByIndex(Long.valueOf(i.longValue()));
         Payment_method p2 = payctrl.getValueByIndex(Long.valueOf(i.longValue()));

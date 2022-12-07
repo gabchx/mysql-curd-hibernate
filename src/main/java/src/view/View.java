@@ -5,6 +5,9 @@ import org.hibernate.Session;
 import org.hibernate.Query;
 import src.controller.*;
 import src.model.*;
+
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import src.repository.OrderRepository;
 import src.seeding.EmployeeSeeding;
 import src.seeding.Seeding;
@@ -290,13 +293,16 @@ public class View {
         String user_name = scanner.next();
         System.out.println("Enter password:");
         String password = scanner.next();
-        System.out.println("Enter birthdate (ddmmyyyy):");
-        Integer birthdate = Integer.parseInt(scanner.next());
+        System.out.println("Enter birthdate (yyy-mm-dd):");
+        String birthdate = scanner.next();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         System.out.println("Enter time_left:");
         Integer time_left = Integer.parseInt(scanner.next());
+        ParsePosition pos = new ParsePosition(0);
+        Date date = sdf.parse(birthdate,pos);
         Authentication newauth = new Authentication(user_name,password);
         authenticationController.addAuthentication(newauth);
-        Customer newCustomer = new Customer(name,email,newauth,birthdate,time_left);
+        Customer newCustomer = new Customer(name,email,newauth,date,time_left);
         customerController.addCustomer(newCustomer);
         ending();
     }
@@ -310,16 +316,20 @@ public class View {
         String email = scanner.next();
         System.out.println("Enter password:");
         String password = scanner.next();
-        System.out.println("Enter birthdate (ddmmyyyy):");
-        Integer birthdate = Integer.parseInt(scanner.next());
+        System.out.println("Enter birthdate (yyy-mm-dd):");
+        String birthdate = scanner.next();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         System.out.println("Enter time_left:");
+
         Integer time_left = Integer.parseInt(scanner.next());
+        ParsePosition pos = new ParsePosition(0);
+        Date date = sdf.parse(birthdate,pos);
 
         String user_name = customerController.getValueByIndex(id).getAuthentication().getUser_name();
 
         Authentication newAuthentication = new Authentication(user_name,password);
         authenticationController.updateAuthentication(user_name, newAuthentication);
-        Customer newCustomer = new Customer(id,name,email,newAuthentication,birthdate,time_left);
+        Customer newCustomer = new Customer(id,name,email,newAuthentication,date,time_left);
         customerController.updateCustomer(id, newCustomer);
         ending();
     }
