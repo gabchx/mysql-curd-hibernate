@@ -210,9 +210,15 @@ public class View {
     public void querry(){
         String r;
         System.out.println("\nWhat querry do you want to make?");
-        System.out.println("1 : SELECT * FROM employee");
-        System.out.println("2 : SELECT ....");
-        System.out.println("3 : SELECT ....");
+        System.out.println("1 :  Find the recipe id, cookie time, cooking way and advice(recommended temperature) where the cooking time is 300 or more ");
+        System.out.println("2 :  Find ID, name of customer, time left and time per month that have a subscription of more than 50h  ");
+        System.out.println("3 :  Find the name, user_id and the number of feedbacks they gave. ");
+        System.out.println("4 : Select name, address place ID an number of games per place ");
+        System.out.println("5 : Find the  average grade of the food service given per employee ");
+        System.out.println("6 : Find the fix ID, name, place ID and number of reparations of employees who made more than 3 reparations (fix_id) ");
+        System.out.println("7 : Find the ID, name, address, and average service notation of places with \n" +
+                "an average grade of 3 or higher. (bad: 1, not bad: 2, medium: 3, good: 4, excellent: 5) ");
+        System.out.println("8 : Find the ID, name, address of places which have more than 2 employees with a salary higher than 90000 won ");
         System.out.println("\n Enter 'P' to  write one your-self.");
         r = scanner.next();
         Connector C = new Connector(GlobalVariable.host,GlobalVariable.db_name,GlobalVariable.port);
@@ -220,15 +226,114 @@ public class View {
         String qry;
         switch (r) {
             case "1":
-                qry = "SELECT * FROM employee";
+                qry = " SELECT * FROM `"+GlobalVariable.db_name+"`.recipe \n" +
+                        "\n" +
+                        "where cooking_time>=300 \n" +
+                        "\n" +
+                        " ";
                 System.out.println(C.Query(qry));
                 break;
             case "2":
-                qry = "2";
+                qry = "SELECT customers.user_id, name, time_left, time_per_month  \n" +
+                        "\n" +
+                        "FROM Q" +
+                        ""+GlobalVariable.db_name+".customers  \n" +
+                        "\n" +
+                        "JOIN subscribe  \n" +
+                        "\n" +
+                        "JOIN subscription \n" +
+                        "\n" +
+                        "WHERE customers.user_id= subscribe.user_id  \n" +
+                        "\n" +
+                        "AND subscribe.subscription_id=subscription.subscription_id \n" +
+                        "\n" +
+                        "HAVING time_per_month>50 ";
                 System.out.println(C.Query(qry));
                 break;
             case "3":
-                qry = "3";
+                qry = "SELECT name, customers.user_id , count( serve.feedback_id)number_of_feedback   \n" +
+                        "\n" +
+                        "from serve   \n" +
+                        "\n" +
+                        "join orders   \n" +
+                        "\n" +
+                        "join customers   \n" +
+                        "\n" +
+                        "where serve.biling_id=orders.billing_id  \n" +
+                        "\n" +
+                        "and orders.customer_id=customers.user_id    \n" +
+                        "\n" +
+                        "group by user_id; ";
+                System.out.println(C.Query(qry));
+                break;
+            case "4":
+                qry = "SELECT  place.adress, place.name, place.place_id , sum(is_download) as nbr_of_downlanded_games  \n" +
+                        "\n" +
+                        "FROM place join game \n" +
+                        "\n" +
+                        "where place.place_id=game.place_id \n" +
+                        "\n" +
+                        "group by place.place_id \n" +
+                        "\n" +
+                        "having nbr_of_downlanded_games>2 ";
+                System.out.println(C.Query(qry));
+                break;
+            case "5":
+                qry = "select  name, employee.employee_id, avg(note) as avg, count(note) count \n" +
+                        "\n" +
+                        "from feedback join serve join employee \n" +
+                        "\n" +
+                        "where feedback.feedback_id=serve.feedback_id  \n" +
+                        "\n" +
+                        "and type= \"food_service\"  \n" +
+                        "\n" +
+                        "and employee.employee_id=serve.employee_id \n" +
+                        "\n" +
+                        "group by employee.employee_id \n" +
+                        "\n" +
+                        " ";
+                System.out.println(C.Query(qry));
+                break;
+            case "6":
+                qry = "SELECT employee_id, name, place_id, COUNT(fix_id) AS count_fix \n" +
+                        "\n" +
+                        "FROM employee JOIN fix  \n" +
+                        "\n" +
+                        "ON employee_id = technician \n" +
+                        "\n" +
+                        "GROUP BY employee_id \n" +
+                        "\n" +
+                        "HAVING count_fix > 3; ";
+                System.out.println(C.Query(qry));
+                break;
+            case "7":
+                qry = "SELECT place_id, name, adress, AVG(notation) avg_notation \n" +
+                        "\n" +
+                        "FROM \n" +
+                        "(SELECT *, \n" +
+                        "\n" +
+                        "CASE description \n" +
+                        "WHEN \"bad\" THEN 1 \n" +
+                        "WHEN \"not bad\" THEN 2 \n" +
+                        "WHEN \"medium\" THEN 3 \n" +
+                        "WHEN \"good\" THEN 4 \n" +
+                        "WHEN \"excellent\" THEN 5 \n" +
+                        "END AS notation \n" +
+                        "FROM place) AS place_notation \n" +
+                        "GROUP BY place_id \n" +
+                        "HAVING avg_notation >= 3; ";
+                System.out.println(C.Query(qry));
+                break;
+            case "8":
+                qry = "SELECT place.place_id, place.name, place.adress, COUNT(employee_id) AS employee_count \n" +
+                        "\n" +
+                        "FROM employee JOIN place ON place.place_id \n" +
+                        "\n" +
+                        "WHERE place.place_id = employee.place_id AND salary > 90000 \n" +
+                        "\n" +
+                        "GROUP BY place.place_id \n" +
+                        "\n" +
+                        "HAVING employee_count > 2; ";
                 System.out.println(C.Query(qry));
                 break;
             case "P":
