@@ -20,30 +20,46 @@ public class EmployeeSeeding {
         Timeslot t1 = tmsctrl.getValueByIndex("A");
         Employee e1 = new Employee(p1,"Kim","Cooker","122221",t1);
         employeectrl.addEmployee(e1);
+        Employee e11 = new Employee(p1,"Paul","Waiter","92221",t1);
+        employeectrl.addEmployee(e11);
+        Employee e12 = new Employee(p1,"Clara","Waiter","92221",t1);
+        employeectrl.addEmployee(e12);
 
         i = 2;
         Place p2 = placectrl.getValueByIndex(Long.valueOf(i.longValue()));
         Timeslot t2 = tmsctrl.getValueByIndex("B");
         Employee e2 = new Employee(p2,"Charles","Waiter","80540",t2);
         employeectrl.addEmployee(e2);
+        Employee e13 = new Employee(p2,"Sara","Cooker","102221",t2);
+        employeectrl.addEmployee(e13);
 
         i = 3;
         Place p3 = placectrl.getValueByIndex(Long.valueOf(i.longValue()));
         Timeslot t3 = tmsctrl.getValueByIndex("C");
         Employee e3 = new Employee(p3,"Lina","Waiter","75687",t3);
         employeectrl.addEmployee(e3);
+        Employee e14 = new Employee(p3,"Leo","Waiter","92221",t3);
+        employeectrl.addEmployee(e14);
 
         i = 5;
         Place p5 = placectrl.getValueByIndex(Long.valueOf(i.longValue()));
         Timeslot t5 = tmsctrl.getValueByIndex("E");
         Employee e5 = new Employee(p5,"Lee","Technician","105800",t5);
         employeectrl.addEmployee(e5);
+        Employee e4 = new Employee(p5,"Luna","Waiter","75687",t5);
+        employeectrl.addEmployee(e4);
+        Employee e15 = new Employee(p5,"Francois","Waiter","92221",t5);
+        employeectrl.addEmployee(e15);
 
         i = 6;
         Place p6 = placectrl.getValueByIndex(Long.valueOf(i.longValue()));
         Timeslot t6 = tmsctrl.getValueByIndex("F");
         Employee e6 = new Employee(p6,"Marc","Waiter","75687",t6);
         employeectrl.addEmployee(e6);
+        Employee e16 = new Employee(p6,"Matthieu","Cooker","110200",t6);
+        employeectrl.addEmployee(e16);
+        Employee e17 = new Employee(p6,"Julia","Waiter","92221",t6);
+        employeectrl.addEmployee(e17);
 
         i = 7;
         Place p7 = placectrl.getValueByIndex(Long.valueOf(i.longValue()));
