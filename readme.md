@@ -26,7 +26,8 @@ Using this code, you'll be able to use JDBC and Hibernate to integrates a PC Ban
       `<property name="hibernate.connection.password">**YOUR PASSWORD**</property>`
 4. Run the code all is done ---
 ## Note
-For adding, and remouving action to work in my-sql please set foreign key check to false
+Please note that adding and update feature in the terminal application is only write for customer instance.
+For adding, and remouving action to work in my-sql please set foreign key check to false :
 
 > SET GLOBAL FOREIGN_KEY_CHECKS=0;
 
