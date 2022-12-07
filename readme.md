@@ -19,7 +19,8 @@ Using this code, you'll be able to use JDBC and Hibernate to integrates a PC Ban
       `public static String db_name = **YOUR DATABASE NAME**;`   
       `public static String username = **YOUR USERNAME**;`    
       `public static String password = **YOUR PASSWORD**;`
-    - Go to src/main/java/ressources/hibernate.cfg.xml and adjust it
+  
+    - Go to src/main/java/ressources/hibernate.cfg.xml and adjust it  
       `<property name="connection.url">**YOUR URL**</property>`  
       `<property name="hibernate.connection.username">**YOUR USERNAME**</property>`  
       `<property name="hibernate.connection.password">**YOUR PASSWORD**</property>`
