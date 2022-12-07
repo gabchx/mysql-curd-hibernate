@@ -1,4 +1,6 @@
 package src.bdextra;
+import src.GlobalVariable;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,7 +10,7 @@ public class StoreProcedure {
 
     public static String create() {
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pcbang-chain", "javapp", "azerty123&é\"");
+            Connection con = DriverManager.getConnection(GlobalVariable.url, GlobalVariable.username, GlobalVariable.password);
             Statement stmt = con.createStatement();
             stmt.execute("CREATE PROCEDURE " +
                     "GetEmployeeByName(IN employeeName VARCHAR(255))"

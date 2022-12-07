@@ -3,6 +3,7 @@ package src.view;
 import lombok.SneakyThrows;
 import org.hibernate.Session;
 import org.hibernate.Query;
+import src.GlobalVariable;
 import src.controller.*;
 import src.model.*;
 
@@ -214,8 +215,8 @@ public class View {
         System.out.println("3 : SELECT ....");
         System.out.println("\n Enter 'P' to  write one your-self.");
         r = scanner.next();
-        Connector C = new Connector("localhost","pcbang-chain",3306);
-        C.Connect("javapp","azerty123&é\"");
+        Connector C = new Connector(GlobalVariable.host,GlobalVariable.db_name,GlobalVariable.port);
+        C.Connect(GlobalVariable.username,GlobalVariable.password);
         String qry;
         switch (r) {
             case "1":

@@ -7,8 +7,6 @@ import src.view.View;
 import src.seeding.Seeding;
 import src.util.HibernateSession;
 
-import java.io.Console;
-
 //TO NOT GET DELETE OR UPDATE ERRORS PLEASE SET : /*SET GLOBAL FOREIGN_KEY_CHECKS=0;*/
 
 public class Application {
@@ -18,8 +16,8 @@ public class Application {
         System.setErr(System.out);
 
         //Test connection
-        Connector C = new Connector("localhost","pcbang-chain",3306);
-        boolean conected = C.Connect("javapp","azerty123&é\"");
+        Connector C = new Connector(GlobalVariable.host,GlobalVariable.db_name,GlobalVariable.port);
+        boolean conected = C.Connect(GlobalVariable.username,GlobalVariable.password);
         while(conected){
             System.out.println("Test session established. ");
 
